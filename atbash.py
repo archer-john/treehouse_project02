@@ -16,6 +16,11 @@ class Atbash(Cipher):
         self.reverse = self.letters[::-1]
 
     def encrypt(self, text: str):
+        """
+        Encrypts a message using the Atbash cipher
+        :param text: string
+        :return: string
+        """
         result = ''
         for char in text.upper():
             try:
@@ -27,6 +32,11 @@ class Atbash(Cipher):
         return result
 
     def decrypt(self, text):
+        """
+        Decrypts an encrypted message using the Atbash cipher
+        :param text:
+        :return:
+        """
         result = ''
         for char in text.upper():
             try:
@@ -36,13 +46,3 @@ class Atbash(Cipher):
             except ValueError:
                 result += char
         return result
-
-
-if __name__ == '__main__':
-    atbash = Atbash()
-    plain_text = 'irk low hob hold holy horn glow'
-    encrypted = 'RIP OLD SLY SLOW SLOB SLIM TOLD'
-    print("Testing Atbash cipher")
-    assert encrypted == atbash.encrypt(plain_text)
-    assert plain_text == atbash.decrypt(encrypted).lower()
-    print('Cipher passed')
