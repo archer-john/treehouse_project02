@@ -5,10 +5,10 @@ from ciphers import Cipher
 
 class Atbash(Cipher):
     """
-    Atbash is a monoalphabetic substitution cipher originally used to encode the Hebre
-    alphabet. The cipher is formed by taking the alphabet and mapping it to it's reverse,
-    so that the first letter becomes the last letter, the second becomes the second last,
-    and so on.
+    Atbash is a monoalphabetic substitution cipher originally used to encode
+    the Hebre alphabet. The cipher is formed by taking the alphabet and mapping
+    it to it's reverse, so that the first letter becomes the last letter, the
+    second becomes the second last, and so on.
     """
 
     def __init__(self):

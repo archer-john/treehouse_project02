@@ -11,7 +11,8 @@ def run():
     # dictionary containing implemented ciphers
     cipher_dict = {'affine': Affine, 'atbash': Atbash, 'keyword': Keyword}
     while True:
-        print('This is the Secret Messages project for the Treehouse Techdegree \n')
+        print('This is the Secret Messages project for the '
+              'Treehouse Techdegree \n')
         print('The following ciphers are available:\n')
         print('1. Affine \n')
         print('2. Atbash \n')
@@ -26,19 +27,32 @@ def run():
         if user_input in cipher_dict:
             message = input("What's the message? ")
             method = input('Do you want to encrypt or decrypt? ')
-            cipher = cipher_dict[user_input]()
-            if method == 'encrypt':
-                print(cipher.encrypt(message))
-            elif method == 'decrypt':
-                print()
-                print('Your message has been encrypted:\n')
-                print(f'*'*4, cipher.encrypt(message), '*'*4)
+            while True:
+                if method == 'encrypt':
+                    cipher = cipher_dict[user_input]()
+                    print('Your message has been encrypted:\n')
+                    print(cipher.encrypt(message))
+                    break
+                elif method == 'decrypt':
+                    cipher = cipher_dict[user_input]()
+                    print('Your message has been decrypted:\n')
+                    print(f'*'*4, cipher.decrypt(message), '*'*4)
+                    break
+                else:
+                    print('[!] - Incorrect entry you can only encrypt '
+                          'or decrypt')
+                    method = input('Please try again would you like to encrypt '
+                                   'or decrypt')
+
             print()
-            another = input('Would you like to Encrypt/Decrypt another Y/N: ').lower()
+            another = input('Would you like to Encrypt/Decrypt'
+                            ' another Y/N: ').lower()
             if another == 'y' or another == 'yes':
                 continue
             else:
                 break
+        else:
+            print('[!] -  You can only select from the ciphers listed')
 
 
 if __name__ == "__main__":

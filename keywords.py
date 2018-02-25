@@ -6,7 +6,8 @@ from ciphers import Cipher
 # noinspection PyMethodMayBeStatic
 class Keyword(Cipher):
     """
-    A keyword cipher is a form of monoalphabetic substitution. A keyword is used as the
+    A keyword cipher is a form of monoalphabetic substitution. A keyword is
+    used as the
     key.
     """
     def __init__(self):
@@ -15,17 +16,19 @@ class Keyword(Cipher):
 
     def get_keyword(self):
         """
-        Ask user for a keyword the input is validated as a string that only contains
+        Ask user for a keyword the input is validated as a string that
+        only contains
         letters and one word.
         :return: string
         """
-        user_input = input("Please enter a keyword that only contains characters: ")
+        user_input = input("Please enter a keyword that only contains "
+                           "characters: ")
         while True:
             if user_input.isalpha() and len(user_input.split()) == 1:
                 return user_input.upper()
             else:
-                user_input = input("You entered non-alpha character or more than "
-                                   "one word please try again: ")
+                user_input = input("[!] - You entered non-alpha character or "
+                                   "more than one word please try again: ")
 
     def generate_cipher_alphabet(self):
         """
