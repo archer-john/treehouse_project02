@@ -17,7 +17,7 @@ class Affine(Cipher):
     """
 
     def __init__(self):
-        self.letters = [s for s in string.ascii_uppercase]
+        self.letters = list(string.ascii_uppercase)
         self.m = len(self.letters)
         self.alpha = self.get_alpha()
         self.beta = self.get_beta()
@@ -30,7 +30,7 @@ class Affine(Cipher):
         :return: int
         """
         m_coprimes = [num for num in range(self.m) if self.coprime(num, self.m)]
-        user_input = input(f"Please pick a number from the list to be used as the first"
+        user_input = input(f"Please pick a number from the list to be used as the first\n"
                            f"key: {m_coprimes} ")
         while True:
             if user_input.isdigit():

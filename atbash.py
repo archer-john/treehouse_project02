@@ -12,7 +12,7 @@ class Atbash(Cipher):
     """
 
     def __init__(self):
-        self.letters = [s for s in string.ascii_uppercase]
+        self.letters = list(string.ascii_uppercase)
         self.reverse = self.letters[::-1]
 
     def encrypt(self, text: str):
